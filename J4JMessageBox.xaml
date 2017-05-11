@@ -7,6 +7,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         xmlns:local="clr-namespace:Olbert.JumpForJoy"
+        xmlns:conv="clr-namespace:Olbert.Wpf;assembly=Olbert.Wpf.Converters"
         mc:Ignorable="d"
         Title="J4JMessageBox" 
         Background="WhiteSmoke"
@@ -21,7 +22,7 @@
         Width="400">
     
     <Window.Resources>
-        <local:EmptyStringToVisibilityConverter x:Key="StringVisibilityConverter"/>
+        <conv:EmptyStringToVisibilityConverter x:Key="StringVisibilityConverter"/>
     </Window.Resources>
     
     <DockPanel Name="TitleBar" VerticalAlignment="Top">

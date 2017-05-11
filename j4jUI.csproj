@@ -74,7 +74,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmptyStringToVisibilityConverter.cs" />
     <Compile Include="J4JMessageBox.xaml.cs">
       <DependentUpon>J4JMessageBox.xaml</DependentUpon>
     </Compile>
@@ -103,7 +102,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WpfConverters\WpfConverters.csproj">
+      <Project>{b69f06bf-2151-46d6-9628-5235699320d3}</Project>
+      <Name>WpfConverters</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\j4jmsgbox.png" />
   </ItemGroup>
