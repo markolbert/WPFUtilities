@@ -74,10 +74,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ButtonClickMessage.cs" />
+    <Compile Include="FluentJ4JMessageBox.cs" />
     <Compile Include="J4JMessageBox.xaml.cs">
       <DependentUpon>J4JMessageBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MessageBoxModel.cs" />
+    <Compile Include="MessageBoxViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -92,6 +94,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="MessageButtonViewModel.cs" />
+    <Compile Include="ResetMarginsMessage.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

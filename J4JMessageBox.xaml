@@ -6,7 +6,6 @@
         xmlns:corlib="clr-namespace:System;assembly=mscorlib"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
-        xmlns:conv="clr-namespace:Olbert.Wpf;assembly=Olbert.Wpf.Converters"
         mc:Ignorable="d"
         Title="J4JMessageBox" 
         Background="WhiteSmoke"
@@ -21,7 +20,44 @@
         Width="400">
     
     <Window.Resources>
-        <conv:EmptyStringToVisibilityConverter x:Key="StringVisibilityConverter"/>
+        <ResourceDictionary>
+            <Style x:Key="ButtonHighlighter" TargetType="{x:Type Button}">
+                <Setter Property="Content" Value="{Binding Text}"/>
+                <Setter Property="IsDefault" Value="{Binding IsDefault}"/>
+                <Setter Property="Visibility" Value="{Binding Visibility}"/>
+                <Setter Property="Margin" Value="{Binding Margin}"/>
+                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                <Setter Property="Background" Value="{Binding NormalBackground}"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontWeight" Value="Normal"/>
+                <Setter Property="FontSize" Value="12pt"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="MinWidth" Value="75"/>
+                <Setter Property="Height" Value="24"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{Binding HighlightedBackground}"/>
+                                </Trigger>
+                                <Trigger Property="IsDefault" Value="True">
+                                    <Setter Property="BorderBrush" Value="{Binding HighlightedBackground}"/>
+                                    <Setter Property="BorderThickness" Value="2"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
     </Window.Resources>
     
     <DockPanel Name="TitleBar" VerticalAlignment="Top">
@@ -31,108 +67,94 @@
                    Background="#6f5210" 
                    Foreground="WhiteSmoke" 
                    FontFamily="Arial" 
-                   FontSize="14"
+                   FontSize="12pt"
                    FontWeight="DemiBold"
                    Text="{Binding Title}"
                    Padding="5" />
-        <Grid>
+        
+        <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" MaxHeight="160" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Row="0" Grid.Column="0" 
+            <Image Grid.Row="0" Grid.Column="0"
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center" 
                    Source="assets/j4jmsgbox.png"
                    Margin="5 5" />
-
-            <ScrollViewer Grid.Row="0" Grid.Column="1"
-                          VerticalScrollBarVisibility="Auto">
-                <TextBlock Text="{Binding Message}" 
-                           HorizontalAlignment="Left" 
-                           VerticalAlignment="Stretch" 
-                           Background="WhiteSmoke" 
-                           Foreground="#6f5210" 
-                           FontFamily="Arial" 
-                           FontWeight="Normal" 
-                           Height="Auto" 
-                           Padding="5" 
-                           TextWrapping="Wrap">
-                </TextBlock>
-            </ScrollViewer>
             
-            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                        Orientation="Horizontal"
-                        Margin="5"
-                        HorizontalAlignment="Right">
+            <DockPanel Grid.Row="0" Grid.Column="1"
+                       LastChildFill="True">
+                
+                <StackPanel DockPanel.Dock="Bottom"
+                            Orientation="Horizontal"
+                            Margin="5"
+                            HorizontalAlignment="Right">
 
-                <Button Content="{Binding Button1}" 
-                        Background="#bb911e" 
-                        Foreground="WhiteSmoke" 
-                        FontFamily="Arial" 
-                        FontWeight="Normal" 
-                        Height="24"
-                        Margin="0 0 5 0"
-                        Width="75">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
-                                                    MustToggleIsEnabledValue="True" >
-                                <command:EventToCommand.CommandParameter>
-                                    <corlib:Int32>1</corlib:Int32>
-                                </command:EventToCommand.CommandParameter>
-                            </command:EventToCommand>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
+                    <Button DataContext="{Binding Button1}"
+                            Style="{StaticResource ButtonHighlighter}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
+                                                        MustToggleIsEnabledValue="True" >
+                                    <command:EventToCommand.CommandParameter>
+                                        <corlib:Int32>1</corlib:Int32>
+                                    </command:EventToCommand.CommandParameter>
+                                </command:EventToCommand>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
 
-                <Button Content="{Binding Button2}" 
-                        Visibility="{Binding Button2, Converter={StaticResource StringVisibilityConverter}}"
-                        Background="#252315" 
-                        Foreground="WhiteSmoke" 
-                        FontFamily="Arial" 
-                        FontWeight="Normal" 
-                        Height="24" 
-                        Margin="0 0 5 0"
-                        Width="75">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
-                                                    MustToggleIsEnabledValue="True" >
-                                <command:EventToCommand.CommandParameter>
-                                    <corlib:Int32>2</corlib:Int32>
-                                </command:EventToCommand.CommandParameter>
-                            </command:EventToCommand>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
+                    <Button DataContext="{Binding Button2}" 
+                            Style="{StaticResource ButtonHighlighter}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
+                                                        MustToggleIsEnabledValue="True" >
+                                    <command:EventToCommand.CommandParameter>
+                                        <corlib:Int32>2</corlib:Int32>
+                                    </command:EventToCommand.CommandParameter>
+                                </command:EventToCommand>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
 
-                <Button Content="{Binding Button3}" 
-                        Visibility="{Binding Button3, Converter={StaticResource StringVisibilityConverter}}"
-                        Background="#bc513e" 
-                        Foreground="WhiteSmoke" 
-                        FontFamily="Arial" 
-                        FontWeight="Normal" 
-                        Height="24" 
-                        Width="75">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
-                                                    MustToggleIsEnabledValue="True" >
-                                <command:EventToCommand.CommandParameter>
-                                    <corlib:Int32>3</corlib:Int32>
-                                </command:EventToCommand.CommandParameter>
-                            </command:EventToCommand>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-            </StackPanel>
+                    <Button DataContext="{Binding Button3}" 
+                            Style="{StaticResource ButtonHighlighter}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
+                                                        MustToggleIsEnabledValue="True" >
+                                    <command:EventToCommand.CommandParameter>
+                                        <corlib:Int32>3</corlib:Int32>
+                                    </command:EventToCommand.CommandParameter>
+                                </command:EventToCommand>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+
+                <ScrollViewer DockPanel.Dock="Top"
+                              VerticalScrollBarVisibility="Auto">
+                    <TextBlock Text="{Binding Message}" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Stretch" 
+                               Background="WhiteSmoke" 
+                               Foreground="#6f5210" 
+                               FontFamily="Arial" 
+                               FontWeight="Normal" 
+                               FontSize="12pt"
+                               Padding="5" 
+                               TextWrapping="Wrap">
+                    </TextBlock>
+                </ScrollViewer>
+
+            </DockPanel>
         </Grid>
 
     </DockPanel>
