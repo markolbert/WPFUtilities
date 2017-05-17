@@ -145,7 +145,7 @@
                                HorizontalAlignment="Left" 
                                VerticalAlignment="Stretch" 
                                Background="WhiteSmoke" 
-                               Foreground="#6f5210" 
+                               Foreground="Black" 
                                FontFamily="Arial" 
                                FontWeight="Normal" 
                                FontSize="12pt"
