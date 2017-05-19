@@ -13,6 +13,21 @@ namespace Olbert.JumpForJoy
 {
     public class MessageBoxViewModel : ViewModelBase
     {
+        internal static Color GetColor(string key, ResourceDictionary dict, string defaultColor)
+        {
+            Color retVal = (Color?)ColorConverter.ConvertFromString(defaultColor) ?? Colors.LightGray;
+
+            try
+            {
+                retVal = (Color)dict[key];
+            }
+            catch
+            {
+            }
+
+            return retVal;
+        }
+
         public event EventHandler Close;
 
         private string _title;
@@ -21,27 +36,27 @@ namespace Olbert.JumpForJoy
         private MessageButtonViewModel _btn2;
         private MessageButtonViewModel _btn3;
 
-        public MessageBoxViewModel()
+        public MessageBoxViewModel( ResourceDictionary j4jRes )
         {
-            Button1 = new MessageButtonViewModel
+            Button1 = new MessageButtonViewModel(j4jRes)
             {
                 Text = "Yes",
                 Visibility = Visibility.Visible,
-                NormalBackground = (SolidColorBrush) new BrushConverter().ConvertFrom( "#bb911e" )
+                NormalBackground = new SolidColorBrush(GetColor("J4JButton1Color", j4jRes, "#bb911e"))
             };
 
-            Button2 = new MessageButtonViewModel
+            Button2 = new MessageButtonViewModel(j4jRes)
             {
                 Text = "No",
                 Visibility = Visibility.Visible,
-                NormalBackground = (SolidColorBrush) new BrushConverter().ConvertFrom( "#252315" )
+                NormalBackground = new SolidColorBrush(GetColor("J4JButton1Color", j4jRes, "#252315"))
             };
 
-            Button3 = new MessageButtonViewModel
+            Button3 = new MessageButtonViewModel(j4jRes)
             {
                 Text = "Cancel",
                 Visibility = Visibility.Visible,
-                NormalBackground = (SolidColorBrush) new BrushConverter().ConvertFrom( "#bc513e" )
+                NormalBackground = new SolidColorBrush(GetColor("J4JButton1Color", j4jRes, "#bc513e"))
             };
 
             Messenger.Default.Register<ButtonClickMessage>( this, ButtonClickHandler );

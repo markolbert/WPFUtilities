@@ -16,9 +16,11 @@ namespace Olbert.JumpForJoy
         private Thickness _margin;
         private bool _isDefault;
 
-        public MessageButtonViewModel()
+        public MessageButtonViewModel( ResourceDictionary j4jRes )
         {
-            HighlightedBackground = Brushes.Orange;
+            HighlightedBackground = new SolidColorBrush(
+                MessageBoxViewModel.GetColor( "J4JButtonHighlightColor", j4jRes, "Orange" ) );
+
             Margin = new Thickness( 0 );
 
             ButtonClick = new RelayCommand<int>( ButtonClickHandler );

@@ -21,42 +21,52 @@
     
     <Window.Resources>
         <ResourceDictionary>
-            <Style x:Key="ButtonHighlighter" TargetType="{x:Type Button}">
-                <Setter Property="Content" Value="{Binding Text}"/>
-                <Setter Property="IsDefault" Value="{Binding IsDefault}"/>
-                <Setter Property="Visibility" Value="{Binding Visibility}"/>
-                <Setter Property="Margin" Value="{Binding Margin}"/>
-                <Setter Property="Foreground" Value="WhiteSmoke"/>
-                <Setter Property="Background" Value="{Binding NormalBackground}"/>
-                <Setter Property="FontFamily" Value="Arial"/>
-                <Setter Property="FontWeight" Value="Normal"/>
-                <Setter Property="FontSize" Value="12pt"/>
-                <Setter Property="Padding" Value="5"/>
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-                <Setter Property="MinWidth" Value="75"/>
-                <Setter Property="Height" Value="24"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter HorizontalAlignment="Center" 
-                                                  VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="{Binding HighlightedBackground}"/>
-                                </Trigger>
-                                <Trigger Property="IsDefault" Value="True">
-                                    <Setter Property="BorderBrush" Value="{Binding HighlightedBackground}"/>
-                                    <Setter Property="BorderThickness" Value="2"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <Color x:Key="J4JButton1Color">#bb911e</Color>
+                    <Color x:Key="J4JButton2Color">#252315</Color>
+                    <Color x:Key="J4JButton3Color">#bc513e</Color>
+                    <Color x:Key="J4JButtonHighlightColor">Orange</Color>
+                    <BitmapImage x:Key="J4JMessageBoxImage" UriSource="assets/alert.png" />
+
+                    <Style x:Key="ButtonHighlighter" TargetType="{x:Type Button}">
+                        <Setter Property="Content" Value="{Binding Text}"/>
+                        <Setter Property="IsDefault" Value="{Binding IsDefault}"/>
+                        <Setter Property="Visibility" Value="{Binding Visibility}"/>
+                        <Setter Property="Margin" Value="{Binding Margin}"/>
+                        <Setter Property="Foreground" Value="WhiteSmoke"/>
+                        <Setter Property="Background" Value="{Binding NormalBackground}"/>
+                        <Setter Property="FontFamily" Value="Arial"/>
+                        <Setter Property="FontWeight" Value="Normal"/>
+                        <Setter Property="FontSize" Value="12pt"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="MinWidth" Value="75"/>
+                        <Setter Property="Height" Value="24"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{Binding HighlightedBackground}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsDefault" Value="True">
+                                            <Setter Property="BorderBrush" Value="{Binding HighlightedBackground}"/>
+                                            <Setter Property="BorderThickness" Value="2"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     
@@ -78,14 +88,14 @@
             </Grid.RowDefinitions>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
             <Image Grid.Row="0" Grid.Column="0"
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center" 
-                   Source="assets/j4jmsgbox.png"
+                   Source="{DynamicResource J4JMessageBoxImage}"
                    Margin="5 5" />
             
             <DockPanel Grid.Row="0" Grid.Column="1"

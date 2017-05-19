@@ -7,7 +7,7 @@
     <ProjectGuid>{A510A9CD-E6DC-40E1-B7DA-2969448691BB}</ProjectGuid>
     <OutputType>library</OutputType>
     <RootNamespace>Olbert.JumpForJoy.WPF</RootNamespace>
-    <AssemblyName>Olbert.j4j.UI</AssemblyName>
+    <AssemblyName>Olbert.JumpForJoy.UI</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -114,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\j4jmsgbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\alert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
