@@ -113,9 +113,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\j4jmsgbox.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="assets\alert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
