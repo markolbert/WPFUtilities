@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B69F06BF-2151-46D6-9628-5235699320D3}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>Olbert.Wpf</RootNamespace>
+    <RootNamespace>Olbert.JumpForJoy.Wpf</RootNamespace>
     <AssemblyName>Olbert.Wpf.Converters</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

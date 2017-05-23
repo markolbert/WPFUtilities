@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Olbert.Wpf
+namespace Olbert.JumpForJoy.Wpf
 {
     public class EmptyStringToVisibilityConverter : IValueConverter
     {
