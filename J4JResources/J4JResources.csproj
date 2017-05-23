@@ -1,7 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
+    <RootNamespace>Olbert.JumpForJoy.WPF</RootNamespace>
+    <AssemblyName>Olbert.JumpForJoy.DefaultResources</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

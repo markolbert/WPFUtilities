@@ -1,8 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <LanguageTargets>$(MSBuildExtensionsPath)\$(VisualStudioVersion)\Bin\Microsoft.CSharp.targets</LanguageTargets>
     <TargetFramework>net462</TargetFramework>
+    <RootNamespace>Olbert.JumpForJoy.WPF</RootNamespace>
+    <AssemblyName>Olbert.JumpForJoy.UI</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
