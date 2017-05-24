@@ -4,6 +4,14 @@
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Olbert.JumpForJoy.Wpf</RootNamespace>
     <AssemblyName>Olbert.Wpf.Converters</AssemblyName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>0.5.0</Version>
+    <Authors>Mark A. Olbert</Authors>
+    <Company>Jump for Joy Software</Company>
+    <Product>WPF converters</Product>
+    <Description>a collection of WPF converters</Description>
+    <Copyright>copyright 2017 Mark A. Olbert all rights reserved</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>

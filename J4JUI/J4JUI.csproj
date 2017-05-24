@@ -5,6 +5,14 @@
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Olbert.JumpForJoy.WPF</RootNamespace>
     <AssemblyName>Olbert.JumpForJoy.UI</AssemblyName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>0.5.0</Version>
+    <Authors>Mark A. Olbert</Authors>
+    <Company>Jump for Joy Software</Company>
+    <Product>Jump for Joy Software WPF UI objects</Product>
+    <Description>a collection of WPF UI objects used in various Jump for Joy Software products</Description>
+    <Copyright>copyright 2017 Mark A. Olbert all rights reserved</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,10 +27,6 @@
 
   <ItemGroup>
     <PackageReference Include="MvvmLightLibs" Version="5.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\WpfConverters\WpfConverters.csproj" />
   </ItemGroup>
 
   <ItemGroup>

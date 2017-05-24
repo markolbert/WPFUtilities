@@ -4,6 +4,14 @@
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Olbert.JumpForJoy.WPF</RootNamespace>
     <AssemblyName>Olbert.JumpForJoy.DefaultResources</AssemblyName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>0.5.0</Version>
+    <Authors>Mark A. Olbert</Authors>
+    <Company>Jump for Joy Software</Company>
+    <Product>Default WPF Resources</Product>
+    <Description>a collection of default WPF resources used in various Jump for Joy Software products</Description>
+    <Copyright>copyright 2017 Mark A. Olbert all rights reserved</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +19,12 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
   </ItemGroup>
 
 </Project>
