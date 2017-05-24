@@ -12,6 +12,8 @@
     <Description>a collection of default WPF resources used in various Jump for Joy Software products</Description>
     <Copyright>copyright 2017 Mark A. Olbert all rights reserved</Copyright>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <IncludeSource>True</IncludeSource>
+    <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
 
   <ItemGroup>
