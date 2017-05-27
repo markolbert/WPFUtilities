@@ -4,21 +4,25 @@
 // This software is licensed under the terms of the MIT License
 // (https://opensource.org/licenses/MIT)
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Olbert.JumpForJoy
 {
+    /// <summary>
+    /// MvvmLight message class indicating when a button is clicked
+    /// </summary>
     public class ButtonClickMessage
     {
+        /// <summary>
+        /// Creates an instance based on a particular button ID
+        /// </summary>
+        /// <param name="buttonID">the ID of the button that was clicked</param>
         public ButtonClickMessage( int buttonID )
         {
             ButtonID = buttonID;
         }
 
+        /// <summary>
+        /// The ID of the button that was clicked
+        /// </summary>
         public int ButtonID { get; }
     }
 }

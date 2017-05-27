@@ -13,6 +13,9 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace Olbert.JumpForJoy
 {
+    /// <summary>
+    /// The view-model for one of the displayed buttons
+    /// </summary>
     public class MessageButtonViewModel : ViewModelBase
     {
         private string _text;
@@ -22,6 +25,12 @@ namespace Olbert.JumpForJoy
         private Thickness _margin;
         private bool _isDefault;
 
+        /// <summary>
+        /// Creates an instance using display parameters (e.g., button colors) defined in
+        /// a ResourceDictionary
+        /// </summary>
+        /// <param name="j4jRes">the ResourceDictionary to use to initialize the appearance
+        /// of the J4JMessageBox; can be null, in which case defaults will be used</param>
         public MessageButtonViewModel( ResourceDictionary j4jRes )
         {
             HighlightedBackground = new SolidColorBrush(
@@ -32,6 +41,9 @@ namespace Olbert.JumpForJoy
             ButtonClick = new RelayCommand<int>( ButtonClickHandler );
         }
 
+        /// <summary>
+        /// The text displayed in the button
+        /// </summary>
         public string Text
         {
             get => _text;
@@ -43,6 +55,9 @@ namespace Olbert.JumpForJoy
             }
         }
 
+        /// <summary>
+        /// The button's visibility
+        /// </summary>
         public Visibility Visibility
         {
             get => _visibility;
@@ -53,30 +68,46 @@ namespace Olbert.JumpForJoy
             }
         }
 
+        /// <summary>
+        /// The button's normal (i.e., unhighlighted) color
+        /// </summary>
         public Brush NormalBackground
         {
             get => _normalBkgnd;
             set => Set<Brush>(ref _normalBkgnd, value);
         }
 
+        /// <summary>
+        /// The button's highlighted color
+        /// </summary>
         public Brush HighlightedBackground
         {
             get => _hiliteBkgnd;
             set => Set<Brush>(ref _hiliteBkgnd, value);
         }
 
+        /// <summary>
+        /// The button's margin
+        /// </summary>
         public Thickness Margin
         {
             get => _margin;
             set => Set<Thickness>( ref _margin, value );
         }
 
+        /// <summary>
+        /// A flag indicating whether or not the button is the default button
+        /// for the message box
+        /// </summary>
         public bool IsDefault
         {
             get => _isDefault;
             set => Set<bool>( ref _isDefault, value );
         }
 
+        /// <summary>
+        /// The MvvmLight RelayCommand activated when the button is clicked
+        /// </summary>
         public RelayCommand<int> ButtonClick { get; }
 
         private void ButtonClickHandler( int obj )

@@ -23,9 +23,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <Color x:Key="J4JButton1Color">#bb911e</Color>
-                    <Color x:Key="J4JButton2Color">#252315</Color>
-                    <Color x:Key="J4JButton3Color">#bc513e</Color>
+                    <Color x:Key="J4JButton0Color">#bb911e</Color>
+                    <Color x:Key="J4JButton1Color">#252315</Color>
+                    <Color x:Key="J4JButton2Color">#bc513e</Color>
                     <Color x:Key="J4JButtonHighlightColor">Orange</Color>
                     <BitmapImage x:Key="J4JMessageBoxImage" UriSource="assets/alert.png" />
 
@@ -107,7 +107,7 @@
                             Margin="5"
                             HorizontalAlignment="Right">
 
-                    <Button DataContext="{Binding Button1}"
+                    <Button DataContext="{Binding Button0}"
                             Style="{StaticResource ButtonHighlighter}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
@@ -121,7 +121,7 @@
                         </i:Interaction.Triggers>
                     </Button>
 
-                    <Button DataContext="{Binding Button2}" 
+                    <Button DataContext="{Binding Button1}" 
                             Style="{StaticResource ButtonHighlighter}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
@@ -135,7 +135,7 @@
                         </i:Interaction.Triggers>
                     </Button>
 
-                    <Button DataContext="{Binding Button3}" 
+                    <Button DataContext="{Binding Button2}" 
                             Style="{StaticResource ButtonHighlighter}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">

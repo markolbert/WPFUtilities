@@ -5,7 +5,6 @@
 // (https://opensource.org/licenses/MIT)
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -18,7 +17,10 @@ namespace Olbert.JumpForJoy.WPF
     /// </summary>
     public partial class J4JMessageBox : Window
     {
-        private const string ResourceDll = "Olbert.JumpForJoy.DefaultResources";
+        /// <summary>
+        /// The name of the resource DLL used to customize the message box's appearance
+        /// </summary>
+        public const string ResourceDll = "Olbert.JumpForJoy.DefaultResources";
 
         public J4JMessageBox()
         {

@@ -6,6 +6,9 @@
 
 namespace Olbert.JumpForJoy
 {
+    /// <summary>
+    /// MvvmLight message class indicating when a button's margins were reset
+    /// </summary>
     public class ResetMarginsMessage
     {
     }
