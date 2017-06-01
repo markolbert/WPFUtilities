@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Olbert.JumpForJoy.Wpf</RootNamespace>
-    <AssemblyName>Olbert.Wpf.Converters</AssemblyName>
+    <AssemblyName>Olbert.JumpForJoy.Wpf.Converters</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>0.5.0</Version>
     <Authors>Mark A. Olbert</Authors>
