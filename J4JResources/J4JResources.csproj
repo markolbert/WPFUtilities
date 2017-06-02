@@ -17,6 +17,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\j4jmsgbox.png" />
+    <None Remove="assets\j4jtransparent.png" />
+    <None Remove="DefaultResources.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="assets\j4jmsgbox.png" />
+    <EmbeddedResource Include="assets\j4jtransparent.png" />
+    <EmbeddedResource Include="DefaultResources.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System.Xaml" />
