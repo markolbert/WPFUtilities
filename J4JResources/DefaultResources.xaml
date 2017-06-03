@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Name="J4JResources">
+
+    <BitmapImage x:Key="J4JMessageBoxImage" UriSource="assets/j4jmsgbox.png" />
+    <BitmapImage x:Key="J4JWizardImage" UriSource="assets/j4jtransparent.png" />
+    <Color x:Key="J4JButton0Color">#bb911e</Color>
+    <Color x:Key="J4JButton1Color">#252315</Color>
+    <Color x:Key="J4JButton2Color">#bc513e</Color>
+    <Color x:Key="J4JButtonHighlightColor">Orange</Color>
+
+</ResourceDictionary>
