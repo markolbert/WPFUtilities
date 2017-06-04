@@ -6,9 +6,12 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Markup;
+using System.Xml;
 
 namespace Olbert.JumpForJoy.WPF
 {
@@ -20,37 +23,54 @@ namespace Olbert.JumpForJoy.WPF
         /// <summary>
         /// The name of the resource DLL used to customize the message box's appearance
         /// </summary>
-        public const string ResourceDll = "Olbert.JumpForJoy.DefaultResources";
+        public const string ResourceID = "Olbert.J4JResources";
 
         public J4JMessageBox()
         {
             InitializeComponent();
 
-            // search for, and load if found, the resource dll
+            // search for a custom resource directory; do this first in the application's
+            // MergedDictionaries, followed by, if that fails, the file system
             ResourceDictionary j4jRD = null;
 
             try
             {
-                var resDllPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{ResourceDll}.dll");
+                j4jRD = Application.Current.Resources.MergedDictionaries.SingleOrDefault(
+                    rd => rd.Source.OriginalString.Contains( ResourceID ) );
 
-                if (File.Exists(resDllPath))
+                if( j4jRD == null )
                 {
-                    var resAssembly = Assembly.LoadFile(resDllPath);
-                    var uriText =
-                        $"pack://application:,,,/{resAssembly.GetName().Name};component/DefaultResources.xaml";
+                    // check the file system
+                    var resDllPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{ResourceID}.dll");
 
-                    j4jRD =
-                        new ResourceDictionary
-                        {
-                            Source = new Uri(uriText)
-                        };
+                    if (File.Exists(resDllPath))
+                    {
+                        var resAssembly = Assembly.LoadFile(resDllPath);
 
-                    Resources.MergedDictionaries.Add(j4jRD);
+                        //using (Stream resStream =
+                        //    resAssembly.GetManifestResourceStream("Olbert.JumpForJoy.WPF.DefaultResources.xaml"))
+                        //{
+                        //    if (resStream != null)
+                        //        using (XmlReader reader = new XmlTextReader(resStream))
+                        //        {
+                        //            j4jRD = (ResourceDictionary)XamlReader.Load(reader);
+                        //            if (j4jRD != null) Resources.MergedDictionaries.Add(j4jRD);
+                        //        }
+                        //}
+
+                        var uriText =
+                            $"pack://application:,,,/{ResourceID};component/DefaultResources.xaml";
+
+                        j4jRD = new ResourceDictionary { Source = new Uri(uriText) };
+                    }
                 }
+
             }
             catch (Exception ex)
             {
             }
+
+            if( j4jRD != null ) Resources.MergedDictionaries.Add( j4jRD );
 
             MouseDown += J4JMessageBox_MouseDown;
 

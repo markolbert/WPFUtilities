@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Olbert.JumpForJoy.WPF.Properties {
+namespace Olbert.J4JResources.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
