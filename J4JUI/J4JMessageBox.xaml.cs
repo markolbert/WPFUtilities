@@ -35,33 +35,24 @@ namespace Olbert.JumpForJoy.WPF
 
             try
             {
-                j4jRD = Application.Current.Resources.MergedDictionaries.SingleOrDefault(
-                    rd => rd.Source.OriginalString.Contains( ResourceID ) );
+                // if the current application isn't defined, skip checking its MergedDictionaries
+                if( Application.Current != null )
+                    j4jRD = Application.Current.Resources.MergedDictionaries
+                        .SingleOrDefault( rd => rd.Source.OriginalString.Contains( ResourceID ) );
 
                 if( j4jRD == null )
                 {
                     // check the file system
                     var resDllPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{ResourceID}.dll");
 
-                    if (File.Exists(resDllPath))
+                    if( File.Exists( resDllPath ) )
                     {
-                        var resAssembly = Assembly.LoadFile(resDllPath);
-
-                        //using (Stream resStream =
-                        //    resAssembly.GetManifestResourceStream("Olbert.JumpForJoy.WPF.DefaultResources.xaml"))
-                        //{
-                        //    if (resStream != null)
-                        //        using (XmlReader reader = new XmlTextReader(resStream))
-                        //        {
-                        //            j4jRD = (ResourceDictionary)XamlReader.Load(reader);
-                        //            if (j4jRD != null) Resources.MergedDictionaries.Add(j4jRD);
-                        //        }
-                        //}
+                        Assembly.LoadFile( resDllPath );
 
                         var uriText =
                             $"pack://application:,,,/{ResourceID};component/DefaultResources.xaml";
 
-                        j4jRD = new ResourceDictionary { Source = new Uri(uriText) };
+                        j4jRD = new ResourceDictionary { Source = new Uri( uriText ) };
                     }
                 }
 

@@ -1,4 +1,13 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<!--
+
+Copyright (c) 2017 Mark A. Olbert all rights reserved
+
+This software is licensed under the terms of the Jump for Joy Software
+commercial license (http://jumpforjoysoftware.com/commercial-license/)
+
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <BitmapImage x:Key="J4JMessageBoxImage" UriSource="assets/j4jmsgbox.png" />

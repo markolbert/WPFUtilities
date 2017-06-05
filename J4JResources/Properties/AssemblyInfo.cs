@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿
+// Copyright (c) 2017 Mark A. Olbert all rights reserved
+//
+// This software is licensed under the terms of the Jump for Joy Software
+// commercial license (http://jumpforjoysoftware.com/commercial-license/)
+
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
