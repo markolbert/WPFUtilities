@@ -33,7 +33,7 @@ namespace Olbert.JumpForJoy.Wpf
         public object Convert( object value, Type targetType, object parameter, CultureInfo culture )
         {
             if( targetType != typeof(Visibility))
-                throw new ArgumentOutOfRangeException(nameof(targetType), @"target Type is not boolean");
+                throw new ArgumentOutOfRangeException(nameof(targetType), @"target Type is not Visibility");
 
             if( value is string text )
                 return String.IsNullOrEmpty( text ) ? Visibility.Collapsed : Visibility.Visible;
