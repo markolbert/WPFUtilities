@@ -39,11 +39,17 @@ namespace Olbert.JumpForJoy.WPF
                 if( Application.Current != null )
                     j4jRD = Application.Current.Resources.MergedDictionaries
                         .SingleOrDefault( rd => rd.Source.OriginalString.Contains( ResourceID ) );
+            }
+            catch( Exception appEx )
+            {
+            }
 
-                if( j4jRD == null )
+            if( j4jRD == null )
+            {
+                // check the file system
+                try
                 {
-                    // check the file system
-                    var resDllPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{ResourceID}.dll");
+                    var resDllPath = Path.Combine( AppDomain.CurrentDomain.BaseDirectory, $"{ResourceID}.dll" );
 
                     if( File.Exists( resDllPath ) )
                     {
@@ -55,10 +61,9 @@ namespace Olbert.JumpForJoy.WPF
                         j4jRD = new ResourceDictionary { Source = new Uri( uriText ) };
                     }
                 }
-
-            }
-            catch (Exception ex)
-            {
+                catch( Exception fsEx )
+                {
+                }
             }
 
             if( j4jRD != null ) Resources.MergedDictionaries.Add( j4jRD );
