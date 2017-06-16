@@ -65,21 +65,21 @@ namespace Olbert.JumpForJoy
             {
                 Text = "Yes",
                 Visibility = Visibility.Visible,
-                NormalBackground = new SolidColorBrush(GetColor("J4JButton1Color", j4jRes, "#bb911e"))
+                NormalBackground = new SolidColorBrush(GetColor("J4JButton0Color", j4jRes, "#835434"))
             };
 
             Button1 = new MessageButtonViewModel(j4jRes)
             {
                 Text = "No",
                 Visibility = Visibility.Visible,
-                NormalBackground = new SolidColorBrush(GetColor("J4JButton1Color", j4jRes, "#252315"))
+                NormalBackground = new SolidColorBrush(GetColor("J4JButton1Color", j4jRes, "#bb8149"))
             };
 
             Button2 = new MessageButtonViewModel(j4jRes)
             {
                 Text = "Cancel",
                 Visibility = Visibility.Visible,
-                NormalBackground = new SolidColorBrush(GetColor("J4JButton1Color", j4jRes, "#bc513e"))
+                NormalBackground = new SolidColorBrush(GetColor("J4JButton2Color", j4jRes, "#fa9599"))
             };
 
             Messenger.Default.Register<ButtonClickMessage>( this, ButtonClickHandler );

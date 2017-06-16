@@ -10,8 +10,6 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Markup;
-using System.Xml;
 
 namespace Olbert.JumpForJoy.WPF
 {

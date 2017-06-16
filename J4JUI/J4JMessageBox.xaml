@@ -114,7 +114,7 @@
                                 <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
                                                         MustToggleIsEnabledValue="True" >
                                     <command:EventToCommand.CommandParameter>
-                                        <corlib:Int32>1</corlib:Int32>
+                                        <corlib:Int32>0</corlib:Int32>
                                     </command:EventToCommand.CommandParameter>
                                 </command:EventToCommand>
                             </i:EventTrigger>
@@ -128,7 +128,7 @@
                                 <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
                                                         MustToggleIsEnabledValue="True" >
                                     <command:EventToCommand.CommandParameter>
-                                        <corlib:Int32>2</corlib:Int32>
+                                        <corlib:Int32>1</corlib:Int32>
                                     </command:EventToCommand.CommandParameter>
                                 </command:EventToCommand>
                             </i:EventTrigger>
@@ -142,7 +142,7 @@
                                 <command:EventToCommand Command="{Binding ButtonClick, Mode=OneWay}" 
                                                         MustToggleIsEnabledValue="True" >
                                     <command:EventToCommand.CommandParameter>
-                                        <corlib:Int32>3</corlib:Int32>
+                                        <corlib:Int32>2</corlib:Int32>
                                     </command:EventToCommand.CommandParameter>
                                 </command:EventToCommand>
                             </i:EventTrigger>
