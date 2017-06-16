@@ -5,7 +5,7 @@
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Olbert.JumpForJoy.WPF</RootNamespace>
     <AssemblyName>Olbert.JumpForJoy.UI</AssemblyName>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">True</GeneratePackageOnBuild>
     <Version>0.5.0</Version>
     <Authors>Mark A. Olbert</Authors>
     <Company>Jump for Joy Software</Company>
